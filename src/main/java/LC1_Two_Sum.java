@@ -1,4 +1,5 @@
 class Solution {
+    //LC: 1. Two Sum
     public int[] twoSum(int[] nums, int target) {
         // ---------------------------------------------
         // -===========INITIALIZATION=================--
