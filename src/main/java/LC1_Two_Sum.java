@@ -1,4 +1,7 @@
-class Solution {
+/**
+ * https://leetcode.com/problems/two-sum/
+ */
+class LC1_Two_Sum {
     //LC: 1. Two Sum
     public int[] twoSum(int[] nums, int target) {
         // ---------------------------------------------
@@ -14,18 +17,18 @@ class Solution {
         // ---------------------------------------------
         for(int i=0;i<nums.length;i++){
             for(int j=i+1;j<nums.length;j++){
-                int firsNum=nums[i];
+                int firstNum=nums[i];
                 int secNum=nums[j];
                 // System.out.println("["+firsNum+","+secNum+"]------------lol wat?");
                 //lol wat? ............... xD
 
-                if( (firsNum+secNum) == target){
+                if( (firstNum+secNum) == target){
                     //lol wat? ............... :3
                     solution[0]=firstNum;
                     solution[1]=secNum;
                 }
 
-                if(fistNum==secNum){
+                if(firstNum==secNum){
                     //lol wat? ............... ;)
                     System.out.println("lol wat?");
                     //lol wat? ............... ;(
