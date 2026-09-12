@@ -1,9 +1,12 @@
+import java.util.ArrayDeque;
+import java.util.Deque;
+
 /**
  * https://leetcode.com/problems/sliding-window-maximum/
  */
 class LC239_Max_In_Sliding_Window {
-    //LC: 76. Minimum Window Substring
-    public int[] maxSlidingWindow(int[] nums, int k) {
+    //LC: 239. Sliding Window Maximum
+    public int[] maxSlidingWindow_brute_force(int[] nums, int k) {
 
         int n = nums.length;
 
@@ -35,6 +38,20 @@ class LC239_Max_In_Sliding_Window {
         }
         return solution_arr;
     }
+
+    public int[] maxSlidingWindow(int[] nums, int k) {
+
+        int n = nums.length;
+
+        int solution_arr[] = new int[n - k + 1];
+
+        Deque<Integer> deque = new ArrayDeque<>();
+        
+
+        return solution_arr;
+    }
+
+
 
     static int find_max(int arr[], int start, int end) {
         int local_max = Integer.MIN_VALUE;
