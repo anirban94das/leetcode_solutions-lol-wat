@@ -1,3 +1,6 @@
+import java.util.ArrayDeque;
+import java.util.Deque;
+
 /**
  * https://leetcode.com/problems/daily-temperatures/
  */
@@ -32,6 +35,24 @@ class LC739_Daily_Temperature {
 
     }
 
+
+
+
+    public int[] dailyTemperatures_v2(int[] temperatures) {
+        int n = temperatures.length;
+        int[] answer = new int[n];
+        Deque<Integer> stack = new ArrayDeque<>();
+
+        for (int i = 0; i < n; i++) {
+            while (!stack.isEmpty() && temperatures[stack.peek()] < temperatures[i]) {
+                int j = stack.pop();
+                answer[j] = i - j;
+            }
+            stack.push(i);
+        }
+
+        return answer;
+    }
     public int[] dailyTemperatures(int[] temperatures) {
 
         int[] solution_arr = new int[temperatures.length];
