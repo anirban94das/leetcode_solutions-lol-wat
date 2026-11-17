@@ -1,5 +1,6 @@
 import java.util.ArrayDeque;
 import java.util.Deque;
+import java.util.concurrent.ConcurrentHashMap;
 
 /**
  * https://leetcode.com/problems/sliding-window-maximum/
@@ -43,14 +44,22 @@ class LC239_Max_In_Sliding_Window {
 
         int n = nums.length;
 
+        ConcurrentHashMap.merge();
+
         int solution_arr[] = new int[n - k + 1];
 
         Deque<Integer> deque = new ArrayDeque<>();
-        
-
+        int c = 0;
+        for (int i : nums) {
+            while (!deque.isEmpty() && deque.peekFirst() < i) {
+                deque.removeLast();
+            }
+            deque.addLast(i);
+            solution_arr[c] = deque.peekFirst();
+            c++;
+        }
         return solution_arr;
     }
-
 
 
     static int find_max(int arr[], int start, int end) {

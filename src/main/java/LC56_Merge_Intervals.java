@@ -1,39 +1,33 @@
 import java.util.*;
 
 /**
- * https://leetcode.com/problems/two-sum/
+ * https://leetcode.com/problems/merge-intervals/
  */
 class LC56_Merge_Intervals {
-    //LC: 1. Two Sum
-    public int[][] merge(int[][] intervals) {
-
-        List<Interval> sortedIntervalList=new ArrayList<>();
-        for(int interval[]:intervals){
-            sortedIntervalList.add(new Interval(interval[0], interval[1]));
-        }
+    //LC: 1. Two Sum Merge Itnervals
+     public int[][] merge(int[][] intervals) {
+        //Sort by start time
         Arrays.sort(intervals, Comparator.comparingInt(a -> a[0]));
+//        Arrays.sort(intervals, (a, b) -> Integer.compare(a[0], b[0]));
 
-        sortedIntervalList.sort(new Comparator<Interval>() {
-            @Override
-            public int compare(Interval o1, Interval o2) {
-                return o1.start-o2.start;
+
+         List<int[]> out = new ArrayList<>();
+        for (int[] current : intervals) {
+
+            if(out.isEmpty()){
+                out.add(current);
+            }else {
+                int[] lastInterval = out.get(out.size() - 1);
+
+                if(lastInterval[1]<current[0]){
+                    out.add(current);
+                } else if (lastInterval[1]>=current[0]) {
+                    lastInterval[1]=Math.max(lastInterval[1], current[1]);
+                }
             }
-        });
-      for()
-
-
-        return new int[][] {{1,2}};
-    }
-
-
-    class Interval{
-            public int start;
-            public int end;
-
-        Interval(int s, int e){
-            start=s;
-            end=e;
         }
+        return out.toArray(new int[0][]);
     }
+
 
 }
